@@ -8,39 +8,39 @@ import {normalizeResponseErrors} from './utils';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
     type: SET_AUTH_TOKEN,
-    authToken
+    authToken,
 });
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
 export const clearAuth = () => ({
-    type: CLEAR_AUTH
+    type: CLEAR_AUTH,
 });
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const authRequest = () => ({
-    type: AUTH_REQUEST
+    type: AUTH_REQUEST,
 });
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const authSuccess = currentUser => ({
     type: AUTH_SUCCESS,
-    currentUser
+    currentUser,
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const authError = error => ({
     type: AUTH_ERROR,
-    error
+    error,
 });
 
 export const DIALOG_ON = 'DIALOG_ON';
 export const dialogOn = () => ({
-    type: DIALOG_ON
+    type: DIALOG_ON,
 });
 
 export const DIALOG_OFF = 'DIALOG_OFF';
 export const dialogOff = () => ({
-    type: dialogOff
+    type: DIALOG_OFF,
 });
 
 // Stores the auth token in state and localStorage, and decodes and stores

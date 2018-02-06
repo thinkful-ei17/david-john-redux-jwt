@@ -6,8 +6,8 @@ let secondTimer;
 
 export class Activity extends React.Component {
     startTimer() {
-        timer = setTimeout(()=>this.props.dispatch(clearAuth()), 3000);
-        secondTimer = setTimeout(()=>this.props.dispatch(dialogOn()), 2000);
+        timer = setTimeout(()=>this.props.dispatch(clearAuth()), 10000);
+        secondTimer = setTimeout(()=>this.props.dispatch(dialogOn()), 5000);
     }
 
     restartTimer() {
@@ -17,20 +17,18 @@ export class Activity extends React.Component {
     }
 
     componentDidMount() {
-        // if(this.props.loggedIn) {
-        //     this.startTimer();
-        //     window.addEventListener('click', () => {
-        //         this.restartTimer();
-        //     })
-        // }
+        console.log('component mounted');
+        this.startTimer();
+        window.addEventListener('click', () => {
+            console.log('window clicked');
+            this.props.dispatch(dialogOff());
+            this.restartTimer();
+        })
     }
 
     render() {
         if(this.props.loggedIn) {
-            this.startTimer();
-            window.addEventListener('click', () => {
-                this.restartTimer();
-            })
+            this.restartTimer();
             if(this.props.dialog) {
                 return (
                     <div className='dialog'>
@@ -38,13 +36,12 @@ export class Activity extends React.Component {
                             this.props.dispatch(dialogOff());
                             this.restartTimer();
                         }}>
-                            {alert('You will be logged out in a minute unless you click this message')}
+                        You will be logged out in a minute unless you click anywhere on the page
                         </div>
                     </div>
                 )
             }
         }
-
         return (
             <p></p>
         )
