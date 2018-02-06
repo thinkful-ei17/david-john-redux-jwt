@@ -4,8 +4,8 @@ import {
     AUTH_REQUEST,
     AUTH_SUCCESS,
     AUTH_ERROR,
-    LOGOUT_TIMER,
-    DIALOG_BOX
+    DIALOG_ON,
+    DIALOG_OFF
 } from '../actions/auth';
 
 const initialState = {
@@ -13,8 +13,7 @@ const initialState = {
     currentUser: null,
     loading: false,
     error: null,
-    dialog: false,
-    logout: null
+    dialog: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -42,14 +41,14 @@ export default function reducer(state = initialState, action) {
             loading: false,
             error: action.error
         });
-    }else if(action.type === DIALOG_BOX){
+    }else if(action.type === DIALOG_ON){
         return Object.assign({}, state, {
             dialog: true
         });
-    }else if ( action.type === LOGOUT_TIMER){
+    }else if(action.type === DIALOG_OFF) {
         return Object.assign({}, state, {
-            logout: action.time
-        });
+            dialog: false
+        })
     }
     return state;
 }

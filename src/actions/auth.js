@@ -33,15 +33,14 @@ export const authError = error => ({
     error
 });
 
-export const DIALOG_BOX = 'DIALOG_BOX';
-export const dialogBox = () => ({
-    type: DIALOG_BOX
+export const DIALOG_ON = 'DIALOG_ON';
+export const dialogOn = () => ({
+    type: DIALOG_ON
 });
 
-export const LOGOUT_TIMER = 'LOGOUT_TIMER';
-export const logoutTimer = time => ({
-    type: LOGOUT_TIMER,
-    time
+export const DIALOG_OFF = 'DIALOG_OFF';
+export const dialogOff = () => ({
+    type: dialogOff
 });
 
 // Stores the auth token in state and localStorage, and decodes and stores
