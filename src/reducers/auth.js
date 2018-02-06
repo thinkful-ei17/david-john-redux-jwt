@@ -3,14 +3,18 @@ import {
     CLEAR_AUTH,
     AUTH_REQUEST,
     AUTH_SUCCESS,
-    AUTH_ERROR
+    AUTH_ERROR,
+    LOGOUT_TIMER,
+    DIALOG_BOX
 } from '../actions/auth';
 
 const initialState = {
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
     loading: false,
-    error: null
+    error: null,
+    dialog: false,
+    logout: null
 };
 
 export default function reducer(state = initialState, action) {
@@ -37,6 +41,14 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             loading: false,
             error: action.error
+        });
+    }else if(action.type === DIALOG_BOX){
+        return Object.assign({}, state, {
+            dialog: true
+        });
+    }else if ( action.type === LOGOUT_TIMER){
+        return Object.assign({}, state, {
+            logout: action.time
         });
     }
     return state;
